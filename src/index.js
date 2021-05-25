@@ -17,7 +17,7 @@ class MyGame extends Phaser.Scene {
             .tileSprite(0, 800 - 166, 1000, 166, "background")
             .setOrigin(0, 0);
 
-        this.bird = this.add.sprite(250, 88, "bird");
+        this.bird = this.add.sprite(500, 88, "bird");
 
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 
