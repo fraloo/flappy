@@ -8,6 +8,9 @@
 
 ## Plan två
 
--   [ ] Krash med marken
+-   [x] Krash med marken
+
+## Plan Te
+
 -   [ ] Hinder från sidan
 -   [ ] Krash med hinder
