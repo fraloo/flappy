@@ -12,5 +12,11 @@
 
 ## Plan Te
 
--   [ ] Hinder från sidan
--   [ ] Krash med hinder
+-   [x] Hinder från sidan
+-   [x] Krash med hinder
+
+## Plan flyga
+
+-   [ ] Moln i skyn - krash børd
+-   [ ] Fler träd från horisonten, olika speed, velocity... hastighet
+-   [ ] Game over

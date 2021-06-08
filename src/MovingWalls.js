@@ -17,45 +17,33 @@ class MovingWalls {
     }
 
     initWalls() {
-        this.wallHeight = this.random.integerInRange(
-            20,
-            this.game.config.height / 3
-        );
+        // this.wallHeight = this.random.integerInRange(
+        //     20,
+        //     this.game.config.height / 3
+        // );
+        this.wallHeight = 200;
         this.wallWidth = 200;
-
-        let grunka = new Phaser.GameObjects.Graphics(this.scene, {
-            x: 50,
-            y: 50,
-        })
-            .lineStyle(5, 0xff00ff, 1.0)
-            .beginPath()
-            .moveTo(100, 100)
-            .lineTo(200, 200)
-            .closePath()
-            .strokePath();
+        console.log({ wh: this.wallHeight });
 
         let wallSprite = new Phaser.GameObjects.Graphics(this.scene);
         wallSprite.fillStyle(0xffffff, 1.0);
-        wallSprite.fillRect(0, 0, this.wallWidth, this.wallHeight);
+        wallSprite.fillRect(800, 500, this.wallWidth, this.wallHeight);
 
         let wallSpriteTexture = wallSprite.generateTexture("PAPPA");
         console.log(wallSpriteTexture);
 
         this.spriteGroup = this.scene.physics.add.group();
-        //this.spriteGroup.enableBody = true;
+        // this.spriteGroup.enableBody = true;
         /*this.spriteGroup.createMultiple({
             quantity: 10,
             key: "PAPPA",
         });*/
 
-        this.spriteGroup.add(this.scene.physics.add.sprite(0, 0, "PAPPA"));
-        this.spriteGroup.add(this.scene.physics.add.sprite(0, 0, "PAPPA"));
-        this.spriteGroup.add(this.scene.physics.add.sprite(0, 0, "PAPPA"));
-        this.spriteGroup.add(this.scene.physics.add.sprite(0, 0, "PAPPA"));
-        this.spriteGroup.add(this.scene.physics.add.sprite(0, 0, "PAPPA"));
-        this.spriteGroup.add(this.scene.physics.add.sprite(0, 0, "PAPPA"));
-        this.spriteGroup.add(this.scene.physics.add.sprite(0, 0, "PAPPA"));
-        this.spriteGroup.add(this.scene.physics.add.sprite(0, 0, "PAPPA"));
+        const theSprite = this.scene.physics.add.sprite(0, 0, "PAPPA");
+        theSprite.body.setGravityY(0);
+        theSprite.body.setAllowGravity(false);
+        theSprite.setImmovable(true);
+        this.spriteGroup.add(theSprite);
 
         console.log(this.spriteGroup);
     }
@@ -67,8 +55,10 @@ class MovingWalls {
         );
         let wall = this.spriteGroup.getFirstDead();
         //let wall = this.spriteGroup.getFirstActive();
-
         console.log("first dead", wall);
+        if (!wall) {
+            return;
+        }
 
         wall.body.gravity.y = 0;
 
