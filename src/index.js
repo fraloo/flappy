@@ -142,6 +142,28 @@ class GameOver extends Phaser.Scene {
 
     create() {
 
+        // Background
+        var graphics = this.add.graphics();
+
+        graphics.fillStyle(0xffffff, 1);
+        graphics.fillRect(0, 0, 1000, 800);
+
+        const stripes = 8;
+
+        for (var i = 0; i < stripes; ++i) {
+            var color = 0x33ccff;
+            var alpha = 0.2 + ((i / stripes-1) * 0.8);
+            graphics.fillStyle(color, alpha);
+            graphics.fillRect(0, ((800 - 166)/stripes) * i , 1000, 256);
+        }
+           
+
+        // Background
+        this.background = this.add
+            .tileSprite(0, 800 - 166, 1000, 166, "background")
+            .setOrigin(0, 0);
+        this.physics.add.existing(this.background, true);
+
         this.gameoverSound = this.sound.add("gameoverSound");
         // this.gameoverSound.play();
 
@@ -156,7 +178,7 @@ class GameOver extends Phaser.Scene {
         const score = this.add
             .text(500, 350, `Total score: ${this.score}`, {
                 fontSize: 90,
-                color: "#ff00ff",
+                color: "#eeff33",
                 fontStyle: "bold",
             })
             .setOrigin(0.5);
