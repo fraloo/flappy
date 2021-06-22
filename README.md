@@ -17,6 +17,10 @@
 
 ## Plan flyga
 
--   [ ] Moln i skyn - krash børd
--   [ ] Fler träd från horisonten, olika speed, velocity... hastighet
--   [ ] Game over
+-   [x] Moln i skyn - krash børd
+-   [x] Game over
+
+## Plan fluga
+-   [x] Game reset
+-   [x] Scores
+-   [x] Fler träd från horisonten, olika speed, velocity... hastighet
